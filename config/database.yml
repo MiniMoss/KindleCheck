@@ -12,14 +12,15 @@
 default: &default
   adapter: mysql2
   encoding: utf8
+  database: kindle_check
   pool: 5
   username: root
-  password:
+  password: allen
   host: localhost
 
 development:
   <<: *default
-  database: KindleCheck_development
+  socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
