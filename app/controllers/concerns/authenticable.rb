@@ -2,11 +2,13 @@ module Authenticable
   protected
   def authenticate_from_token
     if current_token.try :user
-      sign_in token.user, store:false
+      sign_in current_token.user, store:false
+    else
+      render json: { errors: "Not authenticated"}, status: :unauthorized
     end
   end
 
   def current_token
-    AuthenticationToken.find_authenticated({ secrect: request.headers[:secrect], secrect_id: request.headers[:secrect_id]})
+    AuthenticationToken.find_authenticated({ secret: request.headers['secret'], secret_id: request.headers['secret-id']})
   end
 end

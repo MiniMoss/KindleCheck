@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-
+# source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # pry
 gem 'pry'
+gem 'pry-rails', :group => :development
+gem 'pry-nav', :group => :development
 
 # devise
 gem 'devise', '~> 3.4.0'

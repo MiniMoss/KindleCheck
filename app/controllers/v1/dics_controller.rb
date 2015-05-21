@@ -1,5 +1,8 @@
 module V1
   class DicsController < ApplicationController
+    include ::Authenticable
+    before_action :authenticate_from_token
+
     def create
       dic = Dic.new(dic_params)
       # binding.pry

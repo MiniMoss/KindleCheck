@@ -8,7 +8,7 @@ class AuthenticationToken < ActiveRecord::Base
 
   def self.find_authenticated credentials
     token = where(secret_id: credentials[:secret_id]).first
-    token if token && token.has_secret?(credentials)
+    token if token && token.has_secret?(credentials[:secret])
   end
 
   def has_secret? secret

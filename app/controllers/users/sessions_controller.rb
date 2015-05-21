@@ -7,9 +7,11 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    token = AuthenticationToken.create(user_id: current_user.id)
+    flash[:notice] = token.secret
+  end
 
   # DELETE /resource/sign_out
   # def destroy
