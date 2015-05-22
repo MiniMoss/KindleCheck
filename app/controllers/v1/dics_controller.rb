@@ -5,7 +5,6 @@ module V1
 
     def create
       dic = Dic.new(dic_params)
-      # binding.pry
       if dic.save
         render json: dic, status: 201
       end
