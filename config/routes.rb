@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   #API routes
   namespace :v1, constraints: { subdomain: 'api'} do
     resources :dics
-    resources :logins
+    post 'login', to: 'users#login'
+    post 'sign_up', to: 'users#sign_up'
   end
 end
