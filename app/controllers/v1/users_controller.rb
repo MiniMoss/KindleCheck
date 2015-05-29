@@ -10,7 +10,7 @@ module V1
         secret = AuthenticationToken.create(user_id: current_user.id).secret
         render json: {current_user: current_user, secret: secret}, status: 200
       else
-        render json:  'Login failed', status: 401  #Unauthorized
+        render json: 'Login failed', status: 401  #Unauthorized
       end
     end
 
@@ -22,7 +22,7 @@ module V1
         secret = AuthenticationToken.create(user_id: user.id).secret
         render json: {current_user: user, secret: secret}, status: 200
       else
-        render json:  'Sign up failed', status: 422  #Entity already exists
+        render json: user.errors.messages, status: 422 #Entity already exists
       end
     end
 
