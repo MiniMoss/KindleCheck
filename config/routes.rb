@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :dics
     post 'login', to: 'users#login'
     post 'sign_up', to: 'users#sign_up'
+    delete 'logout', to: 'users#logout'
   end
 end
